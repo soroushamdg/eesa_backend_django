@@ -25,7 +25,7 @@ from eesa_main import urls
 from eesa import settings
 
 urlpatterns = [
+    path('', include(eesa_main.urls), name='index'),
     path('admin/', admin.site.urls),
-    url('', include(eesa_main.urls)),
-    url('courses/',include(eesa_courses.urls))
+    path('courses/', include(eesa_courses.urls))
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'eesa_main.apps.EesaMainConfig',
+    'eesa_courses.apps.EesaCoursesConfig'
 ]
 
 MIDDLEWARE = [

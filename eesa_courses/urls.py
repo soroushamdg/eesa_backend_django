@@ -14,15 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
-import eesa_main
 from eesa_courses import views
-from eesa_main import urls
-from eesa import settings
+
 
 urlpatterns = [
-    url('',views.courses_index)
+    path('',views.courses_index)
 ]
