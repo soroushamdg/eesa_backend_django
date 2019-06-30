@@ -177,13 +177,27 @@
                             </div>
                         </div>
 
-                        <h5 class="w-100 text-right mt-2 mb-3">آخرین ها :</h5>
+                        <h5 class="w-100 h-100 text-right mt-2 mb-3" style="overflow: hidden;">آخرین ها :</h5>
 
                         <div id="carouselExampleIndicatorss" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
+{#                                5 last courses  #}
+                                {% if courses == None %}
                                 <div class="carousel-item active">
-                                    <img class="img-fluid" src="{% static "stylesheets/icons/logo.png" %}" alt="First slide">
+                                    <img class="img-fluid carousel-item-image" src="{% static "stylesheets/icons/logo.png" %}" alt="First slide">
                                 </div>
+                                {% else %}
+                                    {% for course in courses %}
+                                       <div class="carousel-item carousel-item-div {% if forloop.counter0 == 0 %}active {% endif %}">
+                                       <img src="{% if course.image == None %}
+{% static "stylesheets/icons/logo.png" %}
+        {% else %}
+        {{ course.image.url }}
+        {% endif %}" class="carousel-item-image w-100 h-100" alt="">
+                                       </div>
+
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicatorss" role="button"
                                data-slide="prev">
@@ -196,7 +210,7 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-                        <button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده تمامی دوره ها</button>
+                        <a href="{% url 'courses_index' %}"><button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده تمامی دوره ها</button> </a>
                     </div>
                 </div>
 

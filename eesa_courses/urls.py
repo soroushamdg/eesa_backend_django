@@ -20,5 +20,5 @@ from eesa_courses import views
 
 
 urlpatterns = [
-    path('', views.courses_index)
+    path('', views.courses_index, name="courses_index")
 ]

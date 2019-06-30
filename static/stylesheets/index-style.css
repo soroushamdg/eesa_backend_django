@@ -197,3 +197,16 @@ box-shadow: 1px -3px 8px -3px rgba(0,0,0,0.75);
 	top: 40%;
 	bottom: 0px;
 }
+/* CAROUSEL ITEMS */
+.carousel-item-image{
+	width : auto;
+	  background-size: cover;
+	max-height: 100%;
+	overflow: hidden;
+}
+.carousel-item-div{
+	width : auto;
+	  background-size: cover;
+	max-height: 100%;
+	overflow: hidden;
+}

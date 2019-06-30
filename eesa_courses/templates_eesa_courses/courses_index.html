@@ -2,7 +2,7 @@
 {% load static %}
 {% load staticfiles %}
 {% block header_title %}
-<title>انجمن علمی برق دانشگاه خواجه نصیر الدین طوسی</title>
+<title>انجمن علمی برق دانشگاه خواجه نصیر الدین طوسی - دوره ها</title>
 {% endblock header_title %}
 {% block custom_stylesheets %}
    <link type="text/css" rel="stylesheet" href="{% static "stylesheets/courses-style.css" %}">
@@ -20,25 +20,30 @@
 
     <!--                   START COURSES -->
                    <h1 class="m-3 mb-5">دوره ها</h1>
+                        {% for course in courses %}
 
 <!--                   START COURSE ITEM-->
 <div class="course-item ">
 <div class="row">
 	<div class="col-12 col-sm-12 col-md-4 col-lg-4">
-		<img src="{% static "stylesheets/icons/logo.png" %}" class="course-item-image p-2">
+		<img src="{% if course.image == None %}
+{% static "stylesheets/icons/logo.png" %}
+        {% else %}
+        {{ course.image.url }}
+        {% endif %}" class="course-item-image p-2">
 	</div>
 	<div class="col m-2  p-2 pl-5">
-		<h3 class="course-item-title mb-3">نام دوره</h3>
-		<p class="course-item-teacher m-1">مدرس دوره</p>
-		<p class="course-item-date m-2">روز و تاریخ<span class="badge badge-warning mr-3 p-2">۵ ساعت</span></p>
-		<p class="course-item-price m-2">۵۰۰۰ <span class="badge badge-success mr-2 mt-3 price-badge">تومان</span></p>
+		<h3 class="course-item-title mb-3">{{ course.name }}</h3>
+		<p class="course-item-teacher m-1">{{ course.teacher.name }}</p>
+		<p class="course-item-date m-2">{{ course.start_date }} تا {{ course.end_date }}<span class="badge badge-warning mr-3 p-2">{{ course.hours_length }} ساعت</span></p>
+		<p class="course-item-price m-2"> قیمت : {{ course.price }}<span class="badge badge-success mr-2 mt-3 price-badge">تومان</span></p>
 
 	</div>
 
 </div>
 <div class="row">
 	<div class="col-6 pl-0">
-		<a href="evand.com"><button type="button" class="btn btn-primary register-button register-button-right">ثبت نام در ایوند</button></a>
+		<a href="{{ course.evand_link }}"><button type="button" class="btn btn-primary register-button register-button-right">ثبت نام در ایوند</button></a>
 		</div>
 		<div class="col-6 pr-0">
 		<a href="evand.com"><button type="button" class="btn btn-secondary register-button register-button-left " disabled>ثبت نام در سایت</button>
@@ -46,7 +51,7 @@
 </div>
 </div>
 <!--END COURSE ITEM -->
-
+{% endfor %}
 <!--                   END COURSES  -->
  </div>
                 </div>
