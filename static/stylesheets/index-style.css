@@ -1,0 +1,199 @@
+@keyframes scaler {
+    0% {transform: scale(1.0)}
+    50% {transform: scale(.9)}
+    100% {transform: scale(1.0)}
+}
+@-moz-keyframes scaler {
+    0% {-moz-transform: scale(1.0)}
+    50% {-moz-transform: scale(.9)}
+    100% {-moz-transform: scale(1.0)}
+}
+@-webkit-keyframes scaler {
+    0% {-webkit-transform : scale(1.0)}
+    50% {-webkit-transform : scale(.9)}
+    100% {-webkit-transform : scale(1.0)}
+}
+
+@-o-keyframes scaler {
+    0% {-o-transform: scale(1.0)}
+    50% {-webkit-transform : scale(.9)}
+    100% {-webkit-transform : scale(1.0);}
+}
+
+@-ms-keyframes scaler {
+    0% {-ms-transform: scale(1.0)}
+    50% {-ms-transform : scale(.9)}
+    100% {-ms-transform : scale(1.0);}
+}
+
+
+
+@font-face {
+    font-family: webFont;
+    src: url(fonts/Shabnam.ttf);
+}
+
+@font-face {
+    font-family : titrFont;
+    src : url(fonts/Shabnam-Bold.ttf);
+}
+
+
+/* BODY */
+body {
+    font-family: 'webFont', serif;
+}
+
+/*     PERSIAN TITR  STYLE     */
+
+.titr {
+    font-family: 'titrFont', serif;
+}
+
+
+/*
+
+.main-logo{
+    -webkit-animation: scaler ease-in-out 3s infinite;
+    -o-animation: scaler ease-in-out 3s infinite;
+    animation: scaler ease-in-out 3s infinite;
+}
+*/
+
+.header {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	padding-bottom: 0px;
+}
+.logoImage{
+	width: 90%;
+	height: 90%;
+	padding: 10px;
+}
+.colorfullBar{
+  	background-image: linear-gradient(to right, lightblue,dodgerblue,lightblue); 
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+}
+.user-profile-img{
+    max-width:100px;
+    max-height: 100px;
+}
+
+
+/* CARDS */
+
+a {
+    text-decoration: none;
+	transform: scale(1);
+	transition: 0.3s;
+}
+a:hover{
+	text-decoration: none;
+	transform: scale(1.002);
+	transition: 0.3s;
+}
+
+.card{
+    border-width: 1px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0px;
+	border-color: whitesmoke;
+	transition: transform .5s; 
+    transform: scale(1);
+}
+
+.card:hover{
+    transition: transform .5s; 
+    transform:  scale(1.02);
+}
+#cardMembers .btn-outline-warning{
+    border-color: #bfce1e;
+    color: #bfce1e;
+}
+#cardMembers .btn-outline-warning:hover{
+    border-color: #bfce1e;
+	background-color: #bfce1e;
+    color: white;
+}
+
+
+#cardATeachers .btn-outline-warning{
+    border-color: #e07911;
+    color: #e07911;
+}
+#cardATeachers .btn-outline-warning:hover{
+    border-color: #e07911;
+	background-color: #e07911;
+    color: white;
+}
+    /* FOOTER STYLE */
+
+.footer {
+    background-color: white;
+    height: 140px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+box-shadow: 1px -3px 8px -3px rgba(0,0,0,0.75);   
+	text-align: center;
+}
+.footerLogo{
+	width: 15%;
+	height: 15%;
+	padding: 5px;
+}
+.footerText{
+	font-size: 0.9em;
+	margin-top: 25px;
+}
+.left-to-right{
+	direction: ltr;
+}
+/* INPUT OPTIONS */
+.inputBorder{
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+		border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+
+}
+.inputButtonBorder{
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+		border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+
+}
+
+/* BLURRY BACK COMMING SOON*/
+.blurry-full-back{
+	position: absolute;
+	z-index: 3;
+	background: rgb(253,253,253,0.9);
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	-webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+  filter: blur(5px);
+	
+}
+.soon-text{
+	position: absolute;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	text-align: center;
+	right: 0px;
+	top: 40%;
+	bottom: 0px;
+}

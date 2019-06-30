@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'eesa_main.apps.EesaMainConfig',
-    'eesa_courses.apps.EesaCoursesConfig'
+    'eesa_courses.apps.EesaCoursesConfig',
+    'eesa_users.apps.EesaUsersConfig'
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,11 @@ ROOT_URLCONF = 'eesa.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [
+                 os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'eesa_main/templates_eesa_main'),
+            os.path.join(BASE_DIR, 'eesa_courses/templates_eesa_courses')
+                 ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -121,8 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_FILES_DIRS = [os.path.join(BASE_DIR,'static')]
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
 # Media file
 MEDIA_URL = '/media/'

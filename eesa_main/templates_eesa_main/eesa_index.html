@@ -1,0 +1,221 @@
+{% extends "dynamic-main.html" %}
+{% load static %}
+{% load staticfiles %}
+{% block header_title %}
+<title>انجمن علمی برق دانشگاه خواجه نصیر الدین طوسی</title>
+{% endblock header_title %}
+{% block under_profile_cards_area %}
+
+      <!-- CARD -> NASHRIE  -->
+
+                <div class="card text-right w-100 mt-3 mb-3 animated bounceInRight delay-2s " id="cardNashrie">
+                    <div class="card-body">
+						<!--		    comming soon	    	-->
+						<div class="blurry-full-back" id="library-soon">
+						</div>
+						<h2 class="soon-text">به زودی...</h2>
+<!--	end comming soon 	-->
+                        <div class="container-fluid">
+                            <div class="d-flex flex-column">
+                                <h3 class="titr">نشریه های انجمن</h3>
+                                <h5 class="mb-4 mt-2">آخرین نشریه منتشر شده:</h5>
+                                <img src="{% static "stylesheets/icons/logo.png" %}" class="img-fluid" alt="Responsive image">
+                                <div class="w-100 row m-1 mt-3">
+                                    <div class="col-6">
+                                        <button type="button" class="w-100 btn btn-outline-primary">دریافت</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="button" class="w-100 btn btn-outline-primary">آرشیو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD -> ABOUT ANJOMAN  -->
+
+                <div class="card text-right w-100 mt-3 mb-3 animated rotateInUpRight delay-2s " id="cardAbout">
+                    <div class="card-body">
+                        <a href="index.html">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="card-img-top rounded-circle img-fluid w-100" src="{% static "stylesheets/icons/logo.png" %}"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="col-8 d-flex">
+                                    <h2 class="text-dark pt-3">معرفی انجمن برق</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+{% endblock under_profile_cards_area %}
+{% block dynamic_stuff_inside %}
+
+    <!-- CARD SECOND COL  -->
+            <div class="col-sm">
+                <!-- CARD -> LIBRARY  -->
+                <div class="card w-100 mt-md-5 mt-2 mb-3 animated flipInX delay-2s  " id="cardLibrary">
+                    <div class="card-body">
+<!--		comming soon				-->
+						<div class="blurry-full-back" id="library-soon">
+						</div>
+						<h2 class="soon-text">به زودی...</h2>
+<!--						end comming soon 	-->
+                        <h2 class="titr w-100 text-right">کتابخونه</h2>
+                        <div class="form-group">
+                            <label class="float-right m-2">جستوجو : </label>
+                            <div class="input-group">
+                                <input type="email" class="form-control inputBorder" id="exampleInputEmail1"
+                                       aria-describedby="emailHelp" placeholder="جستوجو در کتابخونه">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-outline-success btn-block inputButtonBorder">برو</button>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="w-100 text-right">آخرین ها :</h5>
+
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="img-fluid" src="{% static "stylesheets/icons/logo.png" %}" alt="Second slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <button type="button" class="btn btn-outline-danger w-100 mt-3 mb-2">مشاهده بقیه کتب و جزوات
+                        </button>
+
+                    </div>
+                </div>
+
+                <!-- CARD -> AZAE FA'AL  -->
+
+                <div class="card text-align w-100 mt-3 mb-3 animated bounceInUp delay-2s " id="cardMembers">
+                    <div class="card-body">
+                        <h2 class="titr w-100 text-right">اعضای فعال انجمن</h2>
+                        <div class="container-fluid">
+                            <div class="row m-auto pt-3 pb-3">
+                                <div class="col-3">
+                                    <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col-3">
+                                    <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col-3">
+                                    <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col-3">
+                                    <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-warning btn-block">
+                            بیشتر...
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARDS THIRD COL  -->
+
+            <div class="col-sm">
+                <!-- CARD -> ASATID  -->
+
+                <div class="card w-100 mt-md-5 mt-2 mb-3 animated rotateInDownLeft delay-2s " id="cardATeachers">
+                    <div class="card-body">
+						<!--		comming soon				-->
+						<div class="blurry-full-back" id="library-soon">
+						</div>
+						<h2 class="soon-text">به زودی...</h2>
+<!--						end comming soon 	-->
+                        <h2 class="titr w-100 text-right mb-3">اساتید</h2>
+
+                        <div class="row pb-3">
+                            <div class="col-3">
+                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">
+                            </div>
+                            <div class="col-3">
+                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">
+                            </div>
+                            <div class="col-3">
+                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">
+                            </div>
+                            <div class="col-3">
+                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-warning  btn-block">
+                            بیشتر...
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD -> DORE HAAA  -->
+
+                <div class="card w-100 text-right mt-3 mb-3 animated fadeIn delay-2s " id="cardLibrary2">
+                    <div class="card-body">
+                        <h1 class="titr">دوره ها : </h1>
+                        <div class="form-group">
+                            <label class="float-right">جستوجو : </label>
+                            <div class="input-group">
+                                <input type="email" class="form-control"
+                                       aria-describedby="emailHelp" placeholder="جستوجو در دوره ها">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-outline-success btn-block">برو</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="w-100 text-right mt-2 mb-3">آخرین ها :</h5>
+
+                        <div id="carouselExampleIndicatorss" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="img-fluid" src="{% static "stylesheets/icons/logo.png" %}" alt="First slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicatorss" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicatorss" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده تمامی دوره ها</button>
+                    </div>
+                </div>
+
+                <!-- CARD -> FA'ALIAT HAYE ANJOMAN  -->
+
+                <div class="card text-right w-100 mt-3 mb-3 animated rotateInUpLeft delay-2s " id="cardProfile1">
+                    <div class="card-body">
+                        <a href="index.html">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="card-img-top img-fluid" src="{% static "stylesheets/icons/logo.png" %}" alt="Card image cap">
+                                </div>
+                                <div class="col-8">
+                                    <h2 class="text-dark pt-3">فعالیت های انجمن</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+{% endblock dynamic_stuff_inside %}

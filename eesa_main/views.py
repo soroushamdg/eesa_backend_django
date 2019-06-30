@@ -2,9 +2,13 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
+from django.template import loader
+
 
 def index(request):
-    return HttpResponse('web site is up!;p')
+    template = loader.get_template('eesa_index.html')
+    context = {
+        'page_url' : 'home'
+    }
+    return HttpResponse(template.render(context,request))
 
-def wtf(request):
-    return HttpResponse('wtf?!')

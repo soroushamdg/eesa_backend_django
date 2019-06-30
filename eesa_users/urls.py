@@ -14,21 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
-import eesa_courses
-import eesa_main
-import eesa_users
-from eesa_courses import urls
-from eesa_main import urls
-from eesa_users import urls
-from eesa import settings
+from eesa_users import views
 
 urlpatterns = [
-    path('', include(eesa_main.urls)),
-    path('admin/', admin.site.urls),
-    path('courses/', include(eesa_courses.urls)),
-    path('users/', include(eesa_users.urls))
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    path('signinup/', views.signinup, name='usersigninup'),
+]

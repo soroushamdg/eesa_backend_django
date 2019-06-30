@@ -1,0 +1,55 @@
+{% extends "dynamic-main.html" %}
+{% load static %}
+{% load staticfiles %}
+{% block header_title %}
+<title>انجمن علمی برق دانشگاه خواجه نصیر الدین طوسی</title>
+{% endblock header_title %}
+{% block custom_stylesheets %}
+   <link type="text/css" rel="stylesheet" href="{% static "stylesheets/courses-style.css" %}">
+{% endblock custom_stylesheets %}
+{% block under_profile_cards_area %}
+
+{% endblock under_profile_cards_area %}
+{% block dynamic_stuff_inside %}
+
+
+            <!-- DYNAMIC STUFF -->
+            <div class="col-12 col-md-12 col-sm-12 col-lg-8">
+				<div class="card text-right w-100 mt-md-5 mt-3  animated rotateInDownLeft delay-2s  dynamic-stuff-card" id="cardProfile">
+                    <div class="card-body">
+
+    <!--                   START COURSES -->
+                   <h1 class="m-3 mb-5">دوره ها</h1>
+
+<!--                   START COURSE ITEM-->
+<div class="course-item ">
+<div class="row">
+	<div class="col-12 col-sm-12 col-md-4 col-lg-4">
+		<img src="{% static "stylesheets/icons/logo.png" %}" class="course-item-image p-2">
+	</div>
+	<div class="col m-2  p-2 pl-5">
+		<h3 class="course-item-title mb-3">نام دوره</h3>
+		<p class="course-item-teacher m-1">مدرس دوره</p>
+		<p class="course-item-date m-2">روز و تاریخ<span class="badge badge-warning mr-3 p-2">۵ ساعت</span></p>
+		<p class="course-item-price m-2">۵۰۰۰ <span class="badge badge-success mr-2 mt-3 price-badge">تومان</span></p>
+
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-6 pl-0">
+		<a href="evand.com"><button type="button" class="btn btn-primary register-button register-button-right">ثبت نام در ایوند</button></a>
+		</div>
+		<div class="col-6 pr-0">
+		<a href="evand.com"><button type="button" class="btn btn-secondary register-button register-button-left " disabled>ثبت نام در سایت</button>
+		</a></div>
+</div>
+</div>
+<!--END COURSE ITEM -->
+
+<!--                   END COURSES  -->
+ </div>
+                </div>
+			</div>
+{% endblock dynamic_stuff_inside %}
+

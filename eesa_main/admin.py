@@ -4,3 +4,4 @@ from django.contrib import admin
 from eesa_main import models
 
 admin.site.register(models.eesa_team_member)
+admin.site.register(models.eesa_information)
