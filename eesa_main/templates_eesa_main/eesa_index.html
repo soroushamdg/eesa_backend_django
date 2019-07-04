@@ -99,67 +99,134 @@
                     </div>
                 </div>
 
-                <!-- CARD -> AZAE FA'AL  -->
+                 <!-- CARD -> AZAE FA'AL  -->
 
                 <div class="card text-align w-100 mt-3 mb-3 animated bounceInUp delay-2s " id="cardMembers">
                     <div class="card-body">
-                        <h2 class="titr w-100 text-right">اعضای فعال انجمن</h2>
+                        <h2 class="titr w-100 text-right">شورای مرکزی</h2>
                         <div class="container-fluid">
-                            <div class="row m-auto pt-3 pb-3">
-                                <div class="col-3">
-                                    <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                            <div class="row m-auto pt-0 pb-2">
+                                {% if team_members|length == 0 %}
+                                <div class="col">
+                                    <img src="{% static 'stylesheets/icons/user_male.png' %}" class="img-fluid w-100" alt="Responsive image">
                                 </div>
-                                <div class="col-3">
-                                    <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                <div class="col">
+                                    <img src="{% static 'stylesheets/icons/user_male.png' %}" class="img-fluid w-100" alt="Responsive image">
                                 </div>
-                                <div class="col-3">
-                                    <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                <div class="col">
+                                    <img src="{% static 'stylesheets/icons/user_male.png' %}" class="img-fluid w-100" alt="Responsive image">
                                 </div>
-                                <div class="col-3">
-                                    <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                <div class="col">
+                                    <img src="{% static 'stylesheets/icons/user_male.png' %}" class="img-fluid w-100" alt="Responsive image">
                                 </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-warning btn-block">
+                                {% else %}
+
+
+                                {% for crew in team_members %}
+                                     <div class="col">
+{#                                     TODO : SOLVE THESE IMAGES PROBLEM!!!! #}
+{#                                    <img src="{% if crew.image == None %}#}
+{#{% static 'stylesheets/icons/user_male.png' %}#}
+{#{% else %}#}
+{#{{ crew.image.url }}#}
+{#{% endif %}" class="img-fluid w-100" alt="Responsive image">#}
+                                </div>
+                                {% endfor %}
+
+
+                                    <button type="button" class="btn btn-outline-warning btn-block" data-toggle="modal" data-target="#ATM-ModalLong">
                             بیشتر...
                         </button>
+                            {% endif %}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
+
+<!--            ANJOMAN TEAM MODAL     -->
+           <div class="modal fade" id="ATM-ModalLong" tabindex="-1" role="dialog" aria-labelledby="فعالیت ها انجمن" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">شورای مرکزی</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-2">
+      <div class="row">
+<!--      ALL CREW GOES HERE  ...-->
+
+          {% for crew in all_team %}
+<!--    		Crew card      -->
+     		<div class="card col-6 col-sm-6 col-md-4 col-lg-4 m-auto">
+     			 <div class="row">
+{#                 <img src="{% if crew.image == None %}#}
+{#{% static 'stylesheets/icons/user_male.png' %}#}
+{#{% else %}#}
+{#{{ crew.image.url }}#}
+{#{% endif %}" class="img-fluid p-2" alt="Responsive image">#}
+     			 </div>
+     			 	<h5 class="m-auto p-2">{{ crew.name }}</h5>
+     			 	<p class="m-auto p-2">{{ crew.position }}</p>
+     			 	<p class="m-auto p-2">{{ crew.studying_subject }}</p>
+
+     		</div>
+      {% endfor %}
+
+<!--      END CREW CARD     -->
+
+<!--     END CREW      -->
+     </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--           END MODAL               -->
+
+
             <!-- CARDS THIRD COL  -->
 
             <div class="col-sm">
-                <!-- CARD -> ASATID  -->
-
-                <div class="card w-100 mt-md-5 mt-2 mb-3 animated rotateInDownLeft delay-2s " id="cardATeachers">
-                    <div class="card-body">
-						<!--		comming soon				-->
-						<div class="blurry-full-back" id="library-soon">
-						</div>
-						<h2 class="soon-text">به زودی...</h2>
-<!--						end comming soon 	-->
-                        <h2 class="titr w-100 text-right mb-3">اساتید</h2>
-
-                        <div class="row pb-3">
-                            <div class="col-3">
-                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">
-                            </div>
-                            <div class="col-3">
-                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">
-                            </div>
-                            <div class="col-3">
-                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">
-                            </div>
-                            <div class="col-3">
-                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-warning  btn-block">
-                            بیشتر...
-                        </button>
-                    </div>
-                </div>
+{#                <!-- CARD -> ASATID  -->#}
+{##}
+{#                <div class="card w-100 mt-md-5 mt-2 mb-3 animated rotateInDownLeft delay-2s " id="cardATeachers">#}
+{#                    <div class="card-body">#}
+{#						<!--		comming soon				-->#}
+{#						<div class="blurry-full-back" id="library-soon">#}
+{#						</div>#}
+{#						<h2 class="soon-text">به زودی...</h2>#}
+{#<!--						end comming soon 	-->#}
+{#                        <h2 class="titr w-100 text-right mb-3">اساتید</h2>#}
+{##}
+{#                        <div class="row pb-3">#}
+{#                            <div class="col-3">#}
+{#                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">#}
+{#                            </div>#}
+{#                            <div class="col-3">#}
+{#                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">#}
+{#                            </div>#}
+{#                            <div class="col-3">#}
+{#                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">#}
+{#                            </div>#}
+{#                            <div class="col-3">#}
+{#                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <button type="button" class="btn btn-outline-warning  btn-block">#}
+{#                            بیشتر...#}
+{#                        </button>#}
+{#                    </div>#}
+{#                </div>#}
 
                 <!-- CARD -> DORE HAAA  -->
 
@@ -233,3 +300,5 @@
             </div>
 
 {% endblock dynamic_stuff_inside %}
+
+{# TODO : add team members and about and history feature #}

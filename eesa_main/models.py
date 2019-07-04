@@ -4,9 +4,9 @@ from django.db import models
 class eesa_team_member(models.Model):
     name = models.CharField(max_length=40)
     position = models.CharField(max_length=15)
-    active_years = models.IntegerField(blank = True)
+    active_years = models.IntegerField(blank = True,null=True)
     studying_subject = models.CharField(max_length=15)
-    profile_image = models.ImageField(blank=True,null = True)
+    image = models.ImageField(blank=True,null = True)
 
     def __str__(self):
         return self.name
