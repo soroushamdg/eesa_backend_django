@@ -51,28 +51,15 @@ body {
 }
 
 
+/*
 
+.main-logo{
+    -webkit-animation: scaler ease-in-out 3s infinite;
+    -o-animation: scaler ease-in-out 3s infinite;
+    animation: scaler ease-in-out 3s infinite;
+}
+*/
 
-.main-top-logo{
-	margin: 0 auto;
-	text-align: center;
-	
-}
-.main-top-logo-container{
-	display: flex; align-items: center; justify-content: center;
-}
-.top-social-icons{
-	font-size: 1.4em;
-	text-decoration:none;
-	transition: 0.3s;
-	transform: scale(1);
-}
-.top-social-icons:hover{
-	transition: 0.3s;
-		text-decoration:none;
-
-	transform: scale(1.5);
-}
 .header {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -81,20 +68,11 @@ body {
 }
 .logoImage{
 	width: 90%;
-	max-width: 160px;
-	height: 100%;
+	height: 90%;
 	padding: 10px;
 }
-.contact-phone-title{
-	font-size: 1em;
-	text-align: center;
-}
-.contact-mail-title{
-	font-size: 1em;
-	text-align: left;
-}
 .colorfullBar{
-  	background-image: linear-gradient(to right, lightblue,dodgerblue,lightblue);
+  	background-image: linear-gradient(to right, lightblue,dodgerblue,lightblue); 
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -124,12 +102,12 @@ a:hover{
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0px;
 	border-color: whitesmoke;
-	transition: transform .5s;
+	transition: transform .5s; 
     transform: scale(1);
 }
 
 .card:hover{
-    transition: transform .5s;
+    transition: transform .5s; 
     transform:  scale(1.02);
 }
 #cardMembers .btn-outline-warning{
@@ -156,13 +134,13 @@ a:hover{
 
 .footer {
     background-color: white;
-    height: 145px;
+    height: 140px;
     left: 0;
     bottom: 0;
     width: 100%;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-box-shadow: 1px -3px 8px -3px rgba(0,0,0,0.75);
+box-shadow: 1px -3px 8px -3px rgba(0,0,0,0.75);   
 	text-align: center;
 }
 .footerLogo{
@@ -206,7 +184,7 @@ box-shadow: 1px -3px 8px -3px rgba(0,0,0,0.75);
 	bottom: 0px;
 	-webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
   filter: blur(5px);
-
+	
 }
 .soon-text{
 	position: absolute;
@@ -218,23 +196,4 @@ box-shadow: 1px -3px 8px -3px rgba(0,0,0,0.75);
 	right: 0px;
 	top: 40%;
 	bottom: 0px;
-}
-
-/* SCIENCETEFIC CENTER */
-.science-center-cat-container{
-	border-radius: 10px;
-	border: 1px solid rgb(245,245,245);
-
-}
-.science-center-cat-item{
-	border-radius: 10px;
-	border: 1px solid rgb(245,245,245);
-	height: 20%;
-}
-.science-center-cat-item-img{
-	background-color: rgb(243,243,243);
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	width: 100%;
-	height: 100%;
 }

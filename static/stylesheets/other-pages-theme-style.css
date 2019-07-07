@@ -1,0 +1,134 @@
+@keyframes scaler {
+    0% {transform: scale(1.0)}
+    50% {transform: scale(.9)}
+    100% {transform: scale(1.0)}
+}
+@-moz-keyframes scaler {
+    0% {-moz-transform: scale(1.0)}
+    50% {-moz-transform: scale(.9)}
+    100% {-moz-transform: scale(1.0)}
+}
+@-webkit-keyframes scaler {
+    0% {-webkit-transform : scale(1.0)}
+    50% {-webkit-transform : scale(.9)}
+    100% {-webkit-transform : scale(1.0)}
+}
+
+@-o-keyframes scaler {
+    0% {-o-transform: scale(1.0)}
+    50% {-webkit-transform : scale(.9)}
+    100% {-webkit-transform : scale(1.0);}
+}
+
+@-ms-keyframes scaler {
+    0% {-ms-transform: scale(1.0)}
+    50% {-ms-transform : scale(.9)}
+    100% {-ms-transform : scale(1.0);}
+}
+
+
+
+
+@font-face {
+    font-family: webFont;
+    src: url(fonts/Shabnam.ttf);
+}
+
+@font-face {
+    font-family : titrFont;
+    src : url(fonts/Shabnam-Bold.ttf);
+}
+
+
+/* BODY */
+body {
+    font-family: 'webFont', serif;
+    text-align: right;
+}
+header {
+    text-align: right;
+}
+/*     PERSIAN TITR  STYLE     */
+
+.titr {
+    font-family: 'titrFont', serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.colorfullBar{
+  	background-image: linear-gradient(to right, lightblue,dodgerblue,lightblue);
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+}
+.header {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bodyCard {
+     border-width: 2px;
+    border-radius: 8px;
+    padding : 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.col-sm-3{
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.card-book:hover{
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     transition: transform .5s;
+    transform:  scale(1.02);
+}
+.card-book{
+    transition: transform 2s;
+    border-radius: 5px;
+    transform: scale(1);
+}
+.btn:hover{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+    /* FOOTER STYLE */
+
+.footer {
+    background-color: white;
+    height: 140px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+box-shadow: 1px -3px 8px -3px rgba(0,0,0,0.75);
+	text-align: center;
+}
+.arenaLogo{
+	width: 50%;
+	height: 50%;
+	padding: 5px;
+}
+
+/* INPUT OPTIONS */
+.inputBorder{
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+		border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+
+}
+.inputButtonBorder{
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+		border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+
+}
