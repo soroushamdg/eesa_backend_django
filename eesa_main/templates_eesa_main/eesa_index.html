@@ -4,22 +4,41 @@
 {% block header_title %}
 <title>انجمن علمی برق دانشگاه خواجه نصیر الدین طوسی</title>
 {% endblock header_title %}
+
+{% block phone_number_1 %}
+{% endblock %}
+
+{% block phone_number_2 %}
+{% endblock %}
+
+{% block phone_number_3 %}
+{% endblock %}
+
+{% block email %}
+{% endblock %}
+
+{% block instagram_url %}
+{% endblock %}
+
+{% block telegram_url %}
+{% endblock %}
+
 {% block under_profile_cards_area %}
 
       <!-- CARD -> NASHRIE  -->
 
                 <div class="card text-right w-100 mt-3 mb-3 animated bounceInRight delay-2s " id="cardNashrie">
                     <div class="card-body">
-						<!--		    comming soon	    	-->
+						<!--		comming soon				-->
 						<div class="blurry-full-back" id="library-soon">
 						</div>
 						<h2 class="soon-text">به زودی...</h2>
-<!--	end comming soon 	-->
+<!--						end comming soon 	-->
                         <div class="container-fluid">
                             <div class="d-flex flex-column">
                                 <h3 class="titr">نشریه های انجمن</h3>
                                 <h5 class="mb-4 mt-2">آخرین نشریه منتشر شده:</h5>
-                                <img src="{% static "stylesheets/icons/logo.png" %}" class="img-fluid" alt="Responsive image">
+                                <img src="{% static  "stylesheets/icons/logo.png" %}" class="img-fluid" alt="Responsive image">
                                 <div class="w-100 row m-1 mt-3">
                                     <div class="col-6">
                                         <button type="button" class="w-100 btn btn-outline-primary">دریافت</button>
@@ -37,10 +56,10 @@
 
                 <div class="card text-right w-100 mt-3 mb-3 animated rotateInUpRight delay-2s " id="cardAbout">
                     <div class="card-body">
-                        <a href="index.html">
+                        <a href="" data-toggle="modal" data-target="#AA-ModalLong">
                             <div class="row">
                                 <div class="col-4">
-                                    <img class="card-img-top rounded-circle img-fluid w-100" src="{% static "stylesheets/icons/logo.png" %}"
+                                    <img class="card-img-top rounded-circle img-fluid w-100" src="{% static  "stylesheets/icons/logo.png" %}"
                                          alt="Card image cap">
                                 </div>
                                 <div class="col-8 d-flex">
@@ -50,137 +69,19 @@
                         </a>
                     </div>
                 </div>
-{% endblock under_profile_cards_area %}
-{% block dynamic_stuff_inside %}
 
-    <!-- CARD SECOND COL  -->
-            <div class="col-sm">
-                <!-- CARD -> LIBRARY  -->
-                <div class="card w-100 mt-md-5 mt-2 mb-3 animated flipInX delay-2s  " id="cardLibrary">
-                    <div class="card-body">
-<!--		comming soon				-->
-						<div class="blurry-full-back" id="library-soon">
-						</div>
-						<h2 class="soon-text">به زودی...</h2>
-<!--						end comming soon 	-->
-                        <h2 class="titr w-100 text-right">کتابخونه</h2>
-                        <div class="form-group">
-                            <label class="float-right m-2">جستوجو : </label>
-                            <div class="input-group">
-                                <input type="email" class="form-control inputBorder" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp" placeholder="جستوجو در کتابخونه">
-                                <div class="input-group-prepend">
-                                    <button type="submit" class="btn btn-outline-success btn-block inputButtonBorder">برو</button>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="w-100 text-right">آخرین ها :</h5>
-
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="img-fluid" src="{% static "stylesheets/icons/logo.png" %}" alt="Second slide">
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                               data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                               data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                        <button type="button" class="btn btn-outline-danger w-100 mt-3 mb-2">مشاهده بقیه کتب و جزوات
-                        </button>
-
-                    </div>
-                </div>
-
-                 <!-- CARD -> AZAE FA'AL  -->
-
-                <div class="card text-align w-100 mt-3 mb-3 animated bounceInUp delay-2s " id="cardMembers">
-                    <div class="card-body">
-                        <h2 class="titr w-100 text-right">شورای مرکزی</h2>
-                        <div class="container-fluid">
-                            <div class="row m-auto pt-0 pb-2">
-                                {% if team_members|length == 0 %}
-                                <div class="col">
-                                    <img src="{% static 'stylesheets/icons/user_male.png' %}" class="img-fluid w-100" alt="Responsive image">
-                                </div>
-                                <div class="col">
-                                    <img src="{% static 'stylesheets/icons/user_male.png' %}" class="img-fluid w-100" alt="Responsive image">
-                                </div>
-                                <div class="col">
-                                    <img src="{% static 'stylesheets/icons/user_male.png' %}" class="img-fluid w-100" alt="Responsive image">
-                                </div>
-                                <div class="col">
-                                    <img src="{% static 'stylesheets/icons/user_male.png' %}" class="img-fluid w-100" alt="Responsive image">
-                                </div>
-                                {% else %}
-
-
-                                {% for crew in team_members %}
-                                     <div class="col">
-{#                                     TODO : SOLVE THESE IMAGES PROBLEM!!!! #}
-{#                                    <img src="{% if crew.image == None %}#}
-{#{% static 'stylesheets/icons/user_male.png' %}#}
-{#{% else %}#}
-{#{{ crew.image.url }}#}
-{#{% endif %}" class="img-fluid w-100" alt="Responsive image">#}
-                                </div>
-                                {% endfor %}
-
-
-                                    <button type="button" class="btn btn-outline-warning btn-block" data-toggle="modal" data-target="#ATM-ModalLong">
-                            بیشتر...
-                        </button>
-                            {% endif %}
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-<!--            ANJOMAN TEAM MODAL     -->
-           <div class="modal fade" id="ATM-ModalLong" tabindex="-1" role="dialog" aria-labelledby="فعالیت ها انجمن" aria-hidden="true">
+<!--                ABOUT ANJOMAN MODAL  -->
+<div class="modal fade" id="AA-ModalLong" tabindex="-1" role="dialog" aria-labelledby="درباره ها انجمن" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">شورای مرکزی</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">درباره انجمن</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body p-2">
-      <div class="row">
-<!--      ALL CREW GOES HERE  ...-->
-
-          {% for crew in all_team %}
-<!--    		Crew card      -->
-     		<div class="card col-6 col-sm-6 col-md-4 col-lg-4 m-auto">
-     			 <div class="row">
-{#                 <img src="{% if crew.image == None %}#}
-{#{% static 'stylesheets/icons/user_male.png' %}#}
-{#{% else %}#}
-{#{{ crew.image.url }}#}
-{#{% endif %}" class="img-fluid p-2" alt="Responsive image">#}
-     			 </div>
-     			 	<h5 class="m-auto p-2">{{ crew.name }}</h5>
-     			 	<p class="m-auto p-2">{{ crew.position }}</p>
-     			 	<p class="m-auto p-2">{{ crew.studying_subject }}</p>
-
-     		</div>
-      {% endfor %}
-
-<!--      END CREW CARD     -->
-
-<!--     END CREW      -->
-     </div>
+      <div class="modal-body">
+        ...
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
@@ -189,44 +90,14 @@
   </div>
 </div>
 
+<!--                 END MODAL       -->
+<!--                -->
+{% endblock under_profile_cards_area %}
+{% block dynamic_stuff_inside %}
 
-
-<!--           END MODAL               -->
-
-
-            <!-- CARDS THIRD COL  -->
-
+     <!-- CARD SECOND COL  -->
             <div class="col-sm">
-{#                <!-- CARD -> ASATID  -->#}
-{##}
-{#                <div class="card w-100 mt-md-5 mt-2 mb-3 animated rotateInDownLeft delay-2s " id="cardATeachers">#}
-{#                    <div class="card-body">#}
-{#						<!--		comming soon				-->#}
-{#						<div class="blurry-full-back" id="library-soon">#}
-{#						</div>#}
-{#						<h2 class="soon-text">به زودی...</h2>#}
-{#<!--						end comming soon 	-->#}
-{#                        <h2 class="titr w-100 text-right mb-3">اساتید</h2>#}
-{##}
-{#                        <div class="row pb-3">#}
-{#                            <div class="col-3">#}
-{#                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">#}
-{#                            </div>#}
-{#                            <div class="col-3">#}
-{#                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">#}
-{#                            </div>#}
-{#                            <div class="col-3">#}
-{#                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">#}
-{#                            </div>#}
-{#                            <div class="col-3">#}
-{#                                <img src="{% static "stylesheets/icons/user_male.png" %}" class="img-fluid" alt="Responsive image">#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <button type="button" class="btn btn-outline-warning  btn-block">#}
-{#                            بیشتر...#}
-{#                        </button>#}
-{#                    </div>#}
-{#                </div>#}
+                <!-- CARD -> LIBRARY  -->
 
                 <!-- CARD -> DORE HAAA  -->
 
@@ -244,27 +115,13 @@
                             </div>
                         </div>
 
-                        <h5 class="w-100 h-100 text-right mt-2 mb-3" style="overflow: hidden;">آخرین ها :</h5>
+                        <h5 class="w-100 text-right mt-2 mb-3">آخرین ها :</h5>
 
                         <div id="carouselExampleIndicatorss" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
-{#                                5 last courses  #}
-                                {% if courses == None %}
                                 <div class="carousel-item active">
-                                    <img class="img-fluid carousel-item-image" src="{% static "stylesheets/icons/logo.png" %}" alt="First slide">
+                                    <img class="img-fluid" src="{% static  "stylesheets/icons/logo.png" %}" alt="First slide">
                                 </div>
-                                {% else %}
-                                    {% for course in courses %}
-                                       <div class="carousel-item carousel-item-div {% if forloop.counter0 == 0 %}active {% endif %}">
-                                       <img src="{% if course.image == None %}
-{% static "stylesheets/icons/logo.png" %}
-        {% else %}
-        {{ course.image.url }}
-        {% endif %}" class="carousel-item-image w-100 h-100" alt="">
-                                       </div>
-
-                                    {% endfor %}
-                                {% endif %}
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicatorss" role="button"
                                data-slide="prev">
@@ -277,18 +134,20 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-                        <a href="{% url 'courses_index' %}"><button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده تمامی دوره ها</button> </a>
+                        <button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده تمامی دوره ها</button>
                     </div>
                 </div>
 
-                <!-- CARD -> FA'ALIAT HAYE ANJOMAN  -->
+
+             <!-- CARD -> FA'ALIAT HAYE ANJOMAN  -->
 
                 <div class="card text-right w-100 mt-3 mb-3 animated rotateInUpLeft delay-2s " id="cardProfile1">
                     <div class="card-body">
-                        <a href="index.html">
+
+                        <a href="" data-toggle="modal" data-target="#FHA-ModalLong">
                             <div class="row">
                                 <div class="col-4">
-                                    <img class="card-img-top img-fluid" src="{% static "stylesheets/icons/logo.png" %}" alt="Card image cap">
+                                    <img class="card-img-top img-fluid" src="{% static  "stylesheets/icons/logo.png" %}" alt="Card image cap">
                                 </div>
                                 <div class="col-8">
                                     <h2 class="text-dark pt-3">فعالیت های انجمن</h2>
@@ -297,8 +156,152 @@
                         </a>
                     </div>
                 </div>
+<!--                FA'ALIAT HAYE ANJOMAN MODAL    -->
+          <!-- Modal -->
+<div class="modal fade" id="FHA-ModalLong" tabindex="-1" role="dialog" aria-labelledby="فعالیت ها انجمن" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">فعالیت های انجمن</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--            END MODAL  -->
             </div>
 
-{% endblock dynamic_stuff_inside %}
+                            <!-- CARDS THIRD COL  -->
 
-{# TODO : add team members and about and history feature #}
+            <div class="col-sm">
+
+				<!-- CARD -> AZAE FA'AL  -->
+
+                <div class="card text-align w-100 mt-3 mb-3 animated bounceInUp delay-2s " id="cardMembers">
+                    <div class="card-body">
+                        <h2 class="titr w-100 text-right">اعضای فعال انجمن</h2>
+                        <div class="container-fluid">
+                            <div class="row m-auto pt-0 pb-2">
+                                <div class="col">
+                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col">
+                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col">
+                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col">
+                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-warning btn-block" data-toggle="modal" data-target="#ATM-ModalLong">
+                            بیشتر...
+                        </button>
+                    </div>
+                </div>
+
+
+
+<!--            ANJOMAN TEAM MODAL     -->
+           <div class="modal fade" id="ATM-ModalLong" tabindex="-1" role="dialog" aria-labelledby="فعالیت ها انجمن" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">فعالیت های انجمن</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-2">
+      <div class="row">
+<!--      ALL CREW GOES HERE  ...-->
+<!--    		Crew card      -->
+     		<div class="card col-6 col-sm-6 col-md-4 col-lg-4 m-auto p-2">
+     			 <div class="row">
+     			 	<img class="crew-image img-fluid p-3" src="{% static  "stylesheets/icons/logo.png" %}">
+     			 </div>
+     			 	<h5 class="m-auto p-1">نام کاربر</h5>
+     			 	<p class="m-auto p-1">مسئولیت</p>
+     			 	<p class="m-auto p-1">رشته</p>
+
+     		</div>
+<!--      END CREW CARD     -->
+
+
+<!--     END CREW      -->
+     </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--           END MODAL               -->
+
+
+                <!-- CARD -> MARKAZ ELMI  -->
+
+                <div class="card w-100 text-right mt-3 mb-3 animated fadeIn delay-2s " id="cardLibrary2">
+                    <div class="card-body">
+                        <h1 class="titr">مرکز علمی</h1>
+                        <div class="form-group">
+                            <label class="float-right">جستوجو : </label>
+                            <div class="input-group">
+                                <input type="search" class="form-control"
+                                       aria-describedby="emailHelp" placeholder="جستوجو در مرکز">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-outline-success btn-block">برو</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="w-100 text-right mt-2 mb-3">آخرین ها :</h5>
+
+
+<!-- SCC CAT CONTAINER START-->
+                        <div class="science-center-cat-container m-1 p-0">
+<!--                        SCC item START-->
+                        	<div class="science-center-cat-item m-2 p-0">
+                        	<div class="row p-0 m-0">
+                        		<div class="col-3 m-0 p-0">
+                        			<img src="{% static  "stylesheets/icons/logo.png" %}" class="img-fluid science-center-cat-item-img p-1 ">
+
+                        		</div>
+                        		<div class="col m-0 mt-3 mr-2 p-0">
+                        			<p>محصول <span class="badge badge-success mr-2">دسته</span> </p>
+                        		</div>
+
+                        	</div>
+
+                        	</div>
+
+<!--            SCC item end -->
+
+                        </div>
+                        <!-- SCC CAT CONTAINER END-->
+
+                        <button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده همه</button>
+                    </div>
+                </div>
+
+
+
+       </div>
+
+{% endblock dynamic_stuff_inside %}
