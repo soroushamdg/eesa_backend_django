@@ -23,10 +23,10 @@ class eesa_information(models.Model):
     phone_1 = models.CharField(max_length=15,default=None)
     phone_2 = models.CharField(max_length=15,default=None)
     phone_3 = models.CharField(max_length=15,default=None)
-    email = models.CharField(max_length=15,default=None)
-    instagram = models.CharField(max_length=25,default=None)
-    telegram = models.CharField(max_length=25,default=None)
+    email = models.CharField(max_length=40,default=None)
+    instagram = models.CharField(max_length=40,default=None)
+    telegram = models.CharField(max_length=40,default=None)
 
 
     def __str__(self):
-        return self.issue_date.day, self.issue_date.month, self.issue_date.year
+        return f'{self.issue_date.day}, {self.issue_date.month}, {self.issue_date.year}'

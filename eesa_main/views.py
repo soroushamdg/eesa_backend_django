@@ -6,7 +6,7 @@ from django.template import loader
 
 from eesa_courses.models import courses_course
 from eesa_main.models import eesa_team_member
-
+from eesa_main.models import eesa_information
 
 def last_courses(number):
     posts = list()
@@ -32,6 +32,7 @@ def index(request):
     template = loader.get_template('eesa_index.html')
     context = {
         'page_url' : 'home',
+        'eesa_information' : eesa_information.objects.last(),
         'courses' : last_courses(5),
         'team_members' : last_crew(5),
         'all_team' : eesa_team_member.objects.all()

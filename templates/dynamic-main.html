@@ -90,14 +90,22 @@
     <!--                                    IF LOGGED IN -->
                                         {% if user.is_authenticated %}
 
-                                        <h6>{{ user.name }}</h6>
+                                        <h6>{{ user.user_student.name }}</h6>
                                         <div class="row">
                                             <a href="javascript:{document.getElementById('logoutForm').submit()}"><button type="button" class="btn btn-outline-danger btn-sm m-2">خروج</button></a>
                                         <form id="logoutForm" method="post" action="{% url 'signout' %}">
                                             {% csrf_token %}
                                             <input type="hidden"/>
                                         </form>
-                                        </div>
+                                         </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
                                         {% else %}
     <!--                                    ELSE     -->
                                         <div class="row">
@@ -115,6 +123,7 @@
                             </div>
                         </div>
                     </div>
+
 
     <!--                LOGIN AND SIGN UP MODAL-->
     <!-- START LOGIN Modal -->
@@ -196,6 +205,7 @@
 
     <!--END SIGN UP MODAL-->
                 {% endif %}
+
     <!---->
 
 
