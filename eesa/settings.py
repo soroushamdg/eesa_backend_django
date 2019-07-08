@@ -60,8 +60,10 @@ TEMPLATES = [
         'DIRS': [
                  os.path.join(BASE_DIR, 'templates'),
                  os.path.join(BASE_DIR, 'eesa_main/templates_eesa_main'),
-            os.path.join(BASE_DIR, 'eesa_courses/templates_eesa_courses')
-                 ]
+            os.path.join(BASE_DIR, 'eesa_courses/templates_eesa_courses'),
+            os.path.join(BASE_DIR, 'eesa_users/templates_eesa_users')
+
+        ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {

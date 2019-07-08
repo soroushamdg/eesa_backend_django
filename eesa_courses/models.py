@@ -1,7 +1,9 @@
 from django.db import models
 import datetime
 # Create your models here.
-class teacher(models.Model):
+
+
+class course_teacher(models.Model):
     name = models.CharField(max_length=32, unique=True)
 
     def __str__(self):
@@ -21,7 +23,8 @@ class courses_category(models.Model):
 class courses_course(models.Model):
 
     name = models.CharField(max_length=32)
-    teacher = models.ForeignKey(to=teacher,on_delete=models.PROTECT)
+    teacher = models.ForeignKey(to = course_teacher, on_delete=models.PROTECT,null=True,blank=True,default=None)
+    category = models.ForeignKey(to=courses_category, on_delete=models.PROTECT, default=None)
     start_date = models.CharField(max_length=32)
     end_date = models.CharField(max_length=32)
     hours_length = models.CharField(max_length=3)

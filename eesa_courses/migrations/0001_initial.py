@@ -41,11 +41,12 @@ class Migration(migrations.Migration):
                 ('price', models.CharField(max_length=12)),
                 ('evand_link', models.URLField(blank=True, null=True)),
                 ('image', models.ImageField(blank=True, null=True, upload_to='courses_images/06/30/2019/10/04/11')),
-                ('teacher', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='eesa_courses.teacher')),
+                ('teacher', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='eesa_courses.course_teacher')),
             ],
             options={
                 'verbose_name': 'Course',
                 'verbose_name_plural': 'Courses',
             },
         ),
+
     ]

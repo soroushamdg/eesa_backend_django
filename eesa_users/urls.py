@@ -19,5 +19,7 @@ from django.urls import path
 from eesa_users import views
 
 urlpatterns = [
-    path('signinup/', views.signinup, name='usersigninup'),
+    path('signup/', views.signup, name='usersignup'),
+    path('signin/', views.signin, name='usersignin'),
+    path('signout/', views.signout, name="signout")
 ]
