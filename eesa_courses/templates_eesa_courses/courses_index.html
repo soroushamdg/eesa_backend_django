@@ -8,6 +8,35 @@
    <link type="text/css" rel="stylesheet" href="{% static "stylesheets/courses-style.css" %}">
 {% endblock custom_stylesheets %}
 
+{% block phone_number_1 %}
+    {{ eesa_information.phone_1 }}
+{% endblock %}
+
+{% block phone_number_2 %}
+        {{ eesa_information.phone_2 }}
+
+{% endblock %}
+
+{% block phone_number_3 %}
+        {{ eesa_information.phone_3 }}
+
+{% endblock %}
+
+{% block email %}
+        {{ eesa_information.email }}
+
+{% endblock %}
+
+{% block instagram_url %}
+        {{ eesa_information.instagram }}
+
+{% endblock %}
+
+{% block telegram_url %}
+        {{ eesa_information.telegram }}
+
+{% endblock %}
+
 {% block under_profile_cards_area %}
 
 {% endblock under_profile_cards_area %}
@@ -15,11 +44,12 @@
 
 
             <!-- DYNAMIC STUFF -->
-            <div class="col-12 col-md-12 col-sm-12 col-lg-8">
-				<div class="card text-right w-100 mt-md-5 mt-3  animated rotateInDownLeft delay-2s  dynamic-stuff-card" id="cardProfile">
+             <div class="col-12 col-md-12 col-sm-12 col-lg-8 mt-3 mb-5">
+				<div class="card text-right w-100 animated rotateInDownLeft delay-2s  dynamic-stuff-card" id="cardProfile">
                     <div class="card-body">
+<!--                       all dynamic stuff will show up here   -->
 
-    <!--                   START COURSES -->
+<!--                   START COURSES -->
                    <h1 class="m-3 mb-5">دوره ها</h1>
                         {% for course in courses %}
 
@@ -27,11 +57,7 @@
 <div class="course-item ">
 <div class="row">
 	<div class="col-12 col-sm-12 col-md-4 col-lg-4">
-		<img src="{% if course.image == None %}
-{% static "stylesheets/icons/logo.png" %}
-        {% else %}
-        {{ course.image.url }}
-        {% endif %}" class="course-item-image p-2">
+        <img src="{% if course.image == None %} {% static "stylesheets/icons/logo.png" %} {% else %}{{ course.image.url }}{% endif %}" class="course-item-image p-2">
 	</div>
 	<div class="col m-2  p-2 pl-5">
 		<h3 class="course-item-title mb-3">{{ course.name }}</h3>

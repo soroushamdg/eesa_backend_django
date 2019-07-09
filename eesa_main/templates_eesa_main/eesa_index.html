@@ -83,7 +83,7 @@
 
 <!--                ABOUT ANJOMAN MODAL  -->
 <div class="modal fade" id="AA-ModalLong" tabindex="-1" role="dialog" aria-labelledby="درباره ها انجمن" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">درباره انجمن</h5>
@@ -92,7 +92,7 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        {{ eesa_information.introduction }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
@@ -128,24 +128,34 @@
 
                         <h5 class="w-100 text-right mt-2 mb-3">آخرین ها :</h5>
 
-                        <div id="carouselExampleIndicatorss" class="carousel slide" data-ride="carousel">
+                        <div id="carouselIndicatorss" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
+                            {% if courses|length == 0 %}
                                 <div class="carousel-item active">
-                                    <img class="img-fluid" src="{% static  "stylesheets/icons/logo.png" %}" alt="First slide">
+                                    <img class="img-fluid" src="{% static "stylesheets/icons/logo.png" %}" alt="0slide">
                                 </div>
+
+                            {% else %}
+                                {% for course in courses %}
+                                    {{ forloop.counter0 }}
+                                <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                                    <img class="img-fluid" src="{% if course.image != None %}{{ course.image.url }}{% else %}{% static "stylesheets/icons/logo.png" %}{% endif %}" alt="{{ forloop.counter0 }}slide">
+                                </div>
+                                {% endfor %}
+                            {% endif %}
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicatorss" role="button"
+                            <a class="carousel-control-prev" href="#carouselIndicatorss" role="button"
                                data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicatorss" role="button"
+                            <a class="carousel-control-next" href="#carouselIndicatorss" role="button"
                                data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-                        <button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده تمامی دوره ها</button>
+                        <a href="{% url 'courses_index' %}"><button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده تمامی دوره ها</button></a>
                     </div>
                 </div>
 
@@ -170,7 +180,7 @@
 <!--                FA'ALIAT HAYE ANJOMAN MODAL    -->
           <!-- Modal -->
 <div class="modal fade" id="FHA-ModalLong" tabindex="-1" role="dialog" aria-labelledby="فعالیت ها انجمن" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">فعالیت های انجمن</h5>
@@ -179,7 +189,7 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        {{ eesa_information.activities }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>

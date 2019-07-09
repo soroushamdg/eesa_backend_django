@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 from eesa_courses.models import courses_course
+from eesa_main.models import eesa_information
 
 
 def courses_index(request):
@@ -11,6 +12,7 @@ def courses_index(request):
 
     context = {
         'page_url': 'courses',
+        'eesa_information': eesa_information.objects.last(),
         'courses' : courses_course.objects.all()
     }
     return HttpResponse(template.render(context, request))

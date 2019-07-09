@@ -42,11 +42,11 @@
 
                 </div>
                 <div class="col-12 col-sm-2 col-md-2 col-lg-2  p-1 m-0 d-none d-md-block">
-                    <p> {% block phone_number_2 %} {% endblock phone_number_2 %}</p>
+                    <p><i class="fas fa-phone-volume ml-2"></i> {% block phone_number_2 %} {% endblock phone_number_2 %}</p>
 
                 </div>
                 <div class="col-12 col-sm-2 col-md-2 col-lg-2  p-1 m-0 d-none d-md-block">
-                    <p>{% block phone_number_3 %} {% endblock phone_number_3 %}</p>
+                    <p><i class="fas fa-phone-volume ml-2"></i>{% block phone_number_3 %} {% endblock phone_number_3 %}</p>
 
                 </div>
                 <div class="col"></div>
@@ -91,6 +91,8 @@
                                         {% if user.is_authenticated %}
 
                                         <h6>{{ user.user_student.name }}</h6>
+                                            <p>{{ user.user_student.student_number }}</p>
+
                                         <div class="row">
                                             <a href="javascript:{document.getElementById('logoutForm').submit()}"><button type="button" class="btn btn-outline-danger btn-sm m-2">خروج</button></a>
                                         <form id="logoutForm" method="post" action="{% url 'signout' %}">
@@ -227,7 +229,7 @@
     <footer id="footer" class="container-fluid footer p-0">
 
         <div class="colorfullBar"></div>
-        <div class="col-9 col-sm-9 col-md-5 m-auto ">
+        <div class="col-9 col-sm-9 col-md-5 ml-auto mr-auto ">
             <p class="footerText">طراحی و توسعه <a href="http://smpour.ir"><img src="{% static  "stylesheets/icons/smpour.png" %}" class="img-fluid main-logo footerLogo"></a> با همکاری <a href="http://arenagp.ir"><img src="{% static  "stylesheets/icons/arenaLogo.jpg" %}" class="img-fluid main-logo footerLogo"></a></p>
             <p class="footerText left-to-right p-0 m-2">&copy; 2019. EESA KNTU. <a href="http://smpour.ir/copyright">@soroushamdg made it.</a></p>
         </div>

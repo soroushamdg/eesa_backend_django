@@ -39,6 +39,8 @@ def signup(request):
                     return redirect('home')
             else:
                 context['error'] = 'ایمیل نامعتبر است.'
+        else:
+            context['error'] = 'رمز ها شباهت ندارند.'
     else:
         pass
 
