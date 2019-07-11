@@ -20,15 +20,20 @@ from django.urls import path, include
 
 import eesa_courses
 import eesa_main
+import eesa_sci_center
 import eesa_users
 from eesa_courses import urls
 from eesa_main import urls
 from eesa_users import urls
+from eesa_sci_center import urls
 from eesa import settings
 
 urlpatterns = [
     path('', include(eesa_main.urls)),
     path('admin/', admin.site.urls),
     path('courses/', include(eesa_courses.urls)),
-    path('users/', include(eesa_users.urls))
+    path('users/', include(eesa_users.urls)),
+    path('scicenter/', include(eesa_sci_center.urls)),
+    path('djga/', include('google_analytics.urls')),
+    url(r'^', include('favicon.urls'))
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

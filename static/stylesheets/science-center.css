@@ -38,3 +38,32 @@ box-shadow: 0px 0px 6px 0px rgba(164,164,164,1);
 	text-decoration: none;
 	color: black;
 }
+
+.tags-box-area{
+	color: darkslategray;
+	font-size: 1.1em;
+	padding: 1.1em;
+	overflow: auto;
+	max-height: 10em;;
+}
+.tags-box-area ul a{
+	text-decoration: none;
+		color: darkslategray;
+	transform : scale(1);
+	transition: 0.3s;
+}
+.tags-box-area ul a:hover{
+	text-decoration: none;
+		color: darkslategray;
+	transform : scale(1.04);
+	transition: 0.3s;
+}
+.tags-box-area ul{
+	list-style: none;
+	list-style-position: inside;
+}
+.tags-box-area ul a{
+	align-content: flex-end;
+	display: flex;
+	text-align: right;
+}

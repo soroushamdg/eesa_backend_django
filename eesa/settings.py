@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'eesa_main.apps.EesaMainConfig',
     'eesa_courses.apps.EesaCoursesConfig',
-    'eesa_users.apps.EesaUsersConfig'
+    'eesa_users.apps.EesaUsersConfig',
+    'eesa_sci_center.apps.EesaSciCenterConfig',
+    'google_analytics',
+'favicon'
 ]
 
 MIDDLEWARE = [
@@ -61,7 +64,8 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'templates'),
                  os.path.join(BASE_DIR, 'eesa_main/templates_eesa_main'),
             os.path.join(BASE_DIR, 'eesa_courses/templates_eesa_courses'),
-            os.path.join(BASE_DIR, 'eesa_users/templates_eesa_users')
+            os.path.join(BASE_DIR, 'eesa_users/templates_eesa_users'),
+            os.path.join(BASE_DIR, 'eesa_sci_center/templates_eesa_sci_center')
 
         ]
         ,
@@ -132,6 +136,19 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 
+
 # Media file
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+#GOOGLE ANALYTICS
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': 'UA-143603670-1',
+}
+
+
+#FAVICON SETTINGS
+FAVICON_PATH = STATIC_URL + 'stylesheets/icons/favicon.png'
+
+#LOGIN REQUIERED SETTING
+LOGIN_URL = '/users/loginreq/'

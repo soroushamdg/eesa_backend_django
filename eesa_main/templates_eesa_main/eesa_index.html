@@ -139,7 +139,7 @@
                                 {% for course in courses %}
                                     {{ forloop.counter0 }}
                                 <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-                                    <img class="img-fluid" src="{% if course.image != None %}{{ course.image.url }}{% else %}{% static "stylesheets/icons/logo.png" %}{% endif %}" alt="{{ forloop.counter0 }}slide">
+                                    <img class="img-fluid" style="object-fit: cover;" src="{% if course.image != None %}{{ course.image.url }}{% else %}{% static "stylesheets/icons/logo.png" %}{% endif %}" alt="{{ forloop.counter0 }}slide">
                                 </div>
                                 {% endfor %}
                             {% endif %}
@@ -212,19 +212,27 @@
                         <h2 class="titr w-100 text-right">اعضای فعال انجمن</h2>
                         <div class="container-fluid">
                             <div class="row m-auto pt-0 pb-2">
-                                <div class="col">
-                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
-                                </div>
-                                <div class="col">
-                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
-                                </div>
-                                <div class="col">
-                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
-                                </div>
-                                <div class="col">
-                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
-                                </div>
+                                {% if team_members|length >= 4 %}
+                                    {% for member in team_members|rjust:4 %}
+                                        <div class="col">
+                                            <img src="{% if member.image == None %}{% static  "stylesheets/icons/user_male.png" %}{% else %}{{ member.image.url }}{% endif %}" class="img-fluid w-100" alt="Responsive image">
+                                        </div>
+                                    {% endfor %}
 
+                                {% else %}
+                                <div class="col">
+                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col">
+                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col">
+                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                <div class="col">
+                                    <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                         <button type="button" class="btn btn-outline-warning btn-block" data-toggle="modal" data-target="#ATM-ModalLong">
@@ -248,18 +256,19 @@
       <div class="modal-body p-2">
       <div class="row">
 <!--      ALL CREW GOES HERE  ...-->
+          {% for member in team_members %}
 <!--    		Crew card      -->
      		<div class="card col-6 col-sm-6 col-md-4 col-lg-4 m-auto p-2">
      			 <div class="row">
-     			 	<img class="crew-image img-fluid p-3" src="{% static  "stylesheets/icons/logo.png" %}">
+     			 	<img class="crew-image img-fluid p-3" src="{% if member.image == None %}{% static  "stylesheets/icons/user_male.png" %}{% else %}{{ member.image.url }}{% endif %}">
      			 </div>
-     			 	<h5 class="m-auto p-1">نام کاربر</h5>
-     			 	<p class="m-auto p-1">مسئولیت</p>
-     			 	<p class="m-auto p-1">رشته</p>
+     			 	<h5 class="m-auto p-1">{{ member.name }}</h5>
+     			 	<p class="m-auto p-1">{{ member.position }}</p>
+     			 	<p class="m-auto p-1">{{ member.studying_subject }}</p>
 
      		</div>
 <!--      END CREW CARD     -->
-
+      {% endfor %}
 
 <!--     END CREW      -->
      </div>
@@ -297,6 +306,7 @@
 
 <!-- SCC CAT CONTAINER START-->
                         <div class="science-center-cat-container m-1 p-0">
+                            {% for key, value in last_scicenter.items %}
 <!--                        SCC item START-->
                         	<div class="science-center-cat-item m-2 p-0">
                         	<div class="row p-0 m-0">
@@ -304,20 +314,19 @@
                         			<img src="{% static  "stylesheets/icons/logo.png" %}" class="img-fluid science-center-cat-item-img p-1 ">
 
                         		</div>
-                        		<div class="col m-0 mt-3 mr-2 p-0">
-                        			<p>محصول <span class="badge badge-success mr-2">دسته</span> </p>
+                                <div class="col m-0 mt-3 mr-2 p-0">
+                        			<p>{{ value.name }} <span class="badge badge-success mr-2">{{ key }}</span> </p>
                         		</div>
-
                         	</div>
 
                         	</div>
 
 <!--            SCC item end -->
-
+{% endfor %}
                         </div>
                         <!-- SCC CAT CONTAINER END-->
 
-                        <button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده همه</button>
+                        <a href="{% url 'scicenter_index' %}"><button type="button" class="btn btn-outline-primary w-100 mt-3 mb-3">مشاهده همه</button></a>
                     </div>
                 </div>
 

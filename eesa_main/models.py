@@ -27,6 +27,5 @@ class eesa_information(models.Model):
     instagram = models.CharField(max_length=40,default=None)
     telegram = models.CharField(max_length=40,default=None)
 
-
     def __str__(self):
         return f'{self.issue_date.day}, {self.issue_date.month}, {self.issue_date.year}'

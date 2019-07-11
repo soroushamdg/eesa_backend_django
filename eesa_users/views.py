@@ -73,3 +73,11 @@ def signin(request):
 def signout(request):
     auth.logout(request)
     return redirect('home')
+
+
+def require_login(request):
+    template = loader.get_template('users_index.html')
+    context = {
+            'error' : 'برای استفاده از امکانات وبسایت باید ثبت نام کنید.'
+        }
+    return HttpResponse(template.render(context, request))

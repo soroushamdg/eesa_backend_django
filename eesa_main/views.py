@@ -7,6 +7,8 @@ from django.template import loader
 from eesa_courses.models import courses_course
 from eesa_main.models import eesa_team_member
 from eesa_main.models import eesa_information
+from eesa_sci_center.models import scicenter_document, scicenter_tutorial, scicenter_project
+
 
 def last_courses(number):
     posts = list()
@@ -34,8 +36,13 @@ def index(request):
         'page_url' : 'home',
         'eesa_information' : eesa_information.objects.last(),
         'courses' : last_courses(5),
-        'team_members' : last_crew(5),
-        'all_team' : eesa_team_member.objects.all()
+        'team_members' : eesa_team_member.objects.all(),
+        'last_document' : scicenter_document.objects.last(),
+        'last_tutorial': scicenter_tutorial.objects.last(),
+        'last_project': scicenter_project.objects.last(),
+        'last_scicenter' : {'جزوه':scicenter_document.objects.last(),
+                            'آموزش':scicenter_tutorial.objects.last(),
+                            'پروژه':scicenter_project.objects.last()}
     }
     return HttpResponse(template.render(context,request))
 

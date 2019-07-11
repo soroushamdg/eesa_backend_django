@@ -1,0 +1,202 @@
+{% extends 'dynamic-main.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block custom_stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets/science-center.css' %}">
+{% endblock custom_stylesheets %}
+
+{% block header_title %}
+<title>انجمن علمی برق دانشگاه خواجه نصیر الدین طوسی - مرکز علمی</title>
+{% endblock header_title %}
+
+{% block phone_number_1 %}
+    {{ eesa_information.phone_1 }}
+{% endblock %}
+
+{% block phone_number_2 %}
+        {{ eesa_information.phone_2 }}
+
+{% endblock %}
+
+{% block phone_number_3 %}
+        {{ eesa_information.phone_3 }}
+
+{% endblock %}
+
+{% block email %}
+        {{ eesa_information.email }}
+
+{% endblock %}
+
+{% block instagram_url %}
+        {{ eesa_information.instagram }}
+
+{% endblock %}
+
+{% block telegram_url %}
+        {{ eesa_information.telegram }}
+
+{% endblock %}
+
+{% block under_profile_cards_area %}
+
+                <!-- CARD -> TAGS  -->
+                <div class="card text-right w-100 mt-3  animated rotateInDownRight delay-2s " id="cardProfile">
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                 <h3 class="mb-4">دسته بندی ها</h3>
+                          		<div class="col-12 tags-box-area">
+                          			<ul class=" fa-ul">
+                                        {% for tag in all_tags %}
+                          				<a href="{% url 'scicenter_cat_index' cat_id=tag.id %}"><li>{{ tag.name }}<span class="fa-li"><i class="fas fa-tags"></i></span></li></a>
+                                        {% endfor %}
+                          			</ul>
+                          		</div>
+
+                        </div>
+                    </div>
+                </div>
+				</div>
+
+				 <!-- CARD -> WRITERS  -->
+                <div class="card text-right w-100 mt-3  animated rotateInDownRight delay-2s " id="cardProfile">
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                            <h3 class="mb-4">نویسنده ها</h3>
+                          		<div class="col-12 tags-box-area">
+                          			<ul class="writer-list fa-ul">
+                          				{% for pub in all_pubs %}
+                          				<a href="{% url 'scicenter_pub_index' pub_id=pub.id %}"><li>{{ pub.name }}<span class="fa-li"><i class="fas fa-user"></i></span></li></a>
+                                        {% endfor %}
+                          			</ul>
+                          		</div>
+
+                        </div>
+                    </div>
+                </div>
+				</div>
+
+{% endblock under_profile_cards_area %}
+{% block dynamic_stuff_inside %}
+    <!-- DYNAMIC STUFF -->
+            <div class="col-12 col-md-12 col-sm-12 col-lg-8 mt-3 mb-5">
+				<div class="card text-right w-100 animated rotateInDownLeft delay-2s  dynamic-stuff-card" id="cardProfile">
+                    <div class="card-body">
+<!--                       all dynamic stuff will show up here   -->
+
+<!--                   START SCIENCE CENTER DYNAMIC   -->
+
+
+<!--                   SC - TUTORIALS  -->
+                   	<h3>آموزش ها:</h3>
+                   <div class="row m-0 mt-3 p-3 cs-tutorials-scroll-container">
+<!--                   	START TUTORIAL ITEM	-->
+                       {% for tutorial in all_tutorials %}
+                       <div class="col-11 col-sm-5 col-md-5 col-lg-5 m-1 p-0 tutorial-item ml-auto mr-auto">
+
+
+							<div class="row">
+								<div class="col-6 col-sm-6 col-md-6 col-lg-6 tutorial-item-image-col">
+									<img class="tutorial-item-image img-fluid" src="{% static 'stylesheets/icons/logo.png' %}">
+								</div>
+								<div class="col-5 ml-2 mt-2 p-1" style="overflow: auto;">
+                                    {% for tag in tutorial.category.all %}
+									<span class="badge badge-pill badge-success p-2 m-1">{{ tag.name }}</span>
+                                        {% endfor %}
+								</div>
+							</div>
+								<p class="tutorial-item-info p-0 mr-2 mb-2">{{ tutorial.name }}</p>
+
+								<p class="tutorial-item-info p-0 mr-2 mb-2">{% for writer in tutorial.writer.all %} {% if forloop.counter0 != 0 %} {{ '+' }} {% endif %}{{ writer.name }} {% endfor %}</p>
+						<a href="{% if tutorial.is_document_url %}{{ tutorial.document_url }}{% elif tutorial.document_file != None %}{{ tutorial.document_file.url }}{% else %}{{ 'error' }}{% endif %}"><button class="btn btn-success w-100">
+							<i class="fas fa-cloud-download-alt ml-2"></i>دانلود
+						</button></a>
+						</div>
+                       {% endfor %}
+<!--                  END TUTORIAL ITEM-->
+<!--                  -->
+
+
+<!--                  -->
+                   </div>
+
+<!--                   END SC -> TUTORIALS -->
+<!--                  START SC -> DOCUMENTS   -->
+
+                    	<h3 class="mt-3">جزوه ها</h3>
+                   <div class="row m-0 mt-3 p-3 cs-tutorials-scroll-container">
+<!--                   	START DOCUMENT ITEM	-->
+
+						{% for document in all_documents %}
+                       <div class="col-11 col-sm-5 col-md-5 col-lg-5 m-1 p-0 tutorial-item ml-auto mr-auto">
+
+
+							<div class="row">
+								<div class="col-6 col-sm-6 col-md-6 col-lg-6 tutorial-item-image-col">
+									<img class="tutorial-item-image img-fluid" src="{% static 'stylesheets/icons/logo.png' %}">
+								</div>
+								<div class="col-5 ml-2 mt-2 p-1" style="overflow: auto;">
+                                    {% for tag in document.category.all %}
+									<span class="badge badge-pill badge-success p-2 m-1">{{ tag.name }}</span>
+                                        {% endfor %}
+								</div>
+							</div>
+								<p class="tutorial-item-info p-0 mr-2 mb-2">{{ document.name }}</p>
+
+								<p class="tutorial-item-info p-0 mr-2 mb-2">{% for writer in document.writer.all %} {% if forloop.counter0 != 0 %} + {% endif %}{{ writer.name }} {% endfor %}</p>
+						<a href="{% if document.is_document_url %}{{ document.document_url }}{% elif document.document_file != None %}{{ document.document_file.url }}{% else %}{{ 'error' }}{% endif %}"><button class="btn btn-success w-100">
+							<i class="fas fa-cloud-download-alt ml-2"></i>دانلود
+						</button></a>
+						</div>
+                       {% endfor %}
+
+<!--                  END DOCUMENT ITEM-->
+<!--                  -->
+
+
+<!--                  -->
+                   </div>
+<!--                  END SC -> DOCUMENTS      -->
+
+<!--                   START SC -> PROJECTS   -->
+		<h3 class="mt-3">پروژه ها</h3>
+                   <div class="row m-0 mt-3 p-3 cs-tutorials-scroll-container">
+<!--                   	START PROJECT ITEM	-->
+
+
+						{% for project in all_projects %}
+                       <div class="col-11 col-sm-5 col-md-5 col-lg-5 m-1 p-0 tutorial-item ml-auto mr-auto">
+
+
+							<div class="row">
+								<div class="col-6 col-sm-6 col-md-6 col-lg-6 tutorial-item-image-col">
+									<img class="tutorial-item-image img-fluid" src="{% static 'stylesheets/icons/logo.png' %}">
+								</div>
+								<div class="col-5 ml-2 mt-2 p-1" style="overflow: auto;">
+                                    {% for tag in project.category.all %}
+									<span class="badge badge-pill badge-success p-2 m-1">{{ tag.name }}</span>
+                                        {% endfor %}
+								</div>
+							</div>
+								<p class="tutorial-item-info p-0 mr-2 mb-2">{{ project.name }}</p>
+
+								<p class="tutorial-item-info p-0 mr-2 mb-2">{% for writer in project.writer.all %} {% if forloop.counter0 != 0 %} {{ '+' }} {% endif %}{{ writer.name }} {% endfor %}</p>
+						<a href="{% if project.is_document_url %}{{ project.document_url }}{% elif project.document_file != None %}{{ project.document_file.url }}{% else %}{{ 'error' }}{% endif %}"><button class="btn btn-success w-100">
+							<i class="fas fa-cloud-download-alt ml-2"></i>دانلود
+						</button></a>
+						</div>
+                       {% endfor %}
+
+<!--						END PROJECTS ITEM-->
+					</div>
+
+<!--                      END SC -> PROJECTS   -->
+					</div>
+<!--                   END SCIENCE CENTER DYNAMIC     -->
+                    </div>
+			</div>
+<!-- END DYNAMIC STUFF -->
+
+{% endblock dynamic_stuff_inside %}

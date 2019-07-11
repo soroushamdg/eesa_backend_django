@@ -1,4 +1,9 @@
 .dynamic-stuff-card{
 	min-height: 60vh;
 	border: 0.5px solid rgb(243,243,243);
+	transform: scale(1);
+}
+
+.dynamic-stuff-card:hover{
+	transform: scale(1);
 }

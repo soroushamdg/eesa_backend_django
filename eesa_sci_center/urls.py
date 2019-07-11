@@ -16,11 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.urls import path
 
-from eesa_users import views
+from eesa_sci_center import views
 
 urlpatterns = [
-    path('signup/', views.signup, name='usersignup'),
-    path('signin/', views.signin, name='usersignin'),
-    path('signout/', views.signout, name="signout"),
-    path('loginreq/',views.require_login, name='loginrequire')
+    path('', views.index, name='scicenter_index'),
+    path('cat=<int:cat_id>/', views.category_index, name = 'scicenter_cat_index'),
+    path('pub=<int:pub_id>/', views.publisher_index, name= 'scicenter_pub_index')
 ]
