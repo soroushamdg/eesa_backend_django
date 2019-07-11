@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.template import loader
@@ -119,4 +120,25 @@ def publisher_index(request, pub_id):
     except:
         context['all_projects'] = None
 
+    return HttpResponse(template.render(context, request))
+
+
+@login_required
+def search_index(request):
+    template = loader.get_template('scicenter_index')
+    find_query = request.GET.get('scisch')
+    print(find_query)
+    context = {
+        'all_tags': scicenter_category.objects.order_by('name'),
+        'all_pubs': scicenter_writer.objects.order_by('name'),
+        'all_tutorials': None,
+        'all_documents': None,
+        'all_projects': None,
+        'eesa_information': eesa_information.objects.last(),
+
+    }
+
+    context['all_tutorials'] = scicenter_tutorial.objects.filter(Q(name__icontains = find_query))
+    context['all_documents'] = scicenter_document.objects.filter(Q(name__icontains = find_query))
+    context['all_projects'] = scicenter_project.objects.filter(Q(name__icontains = find_query))
     return HttpResponse(template.render(context, request))

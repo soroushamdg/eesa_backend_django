@@ -21,5 +21,6 @@ from eesa_sci_center import views
 urlpatterns = [
     path('', views.index, name='scicenter_index'),
     path('cat=<int:cat_id>/', views.category_index, name = 'scicenter_cat_index'),
-    path('pub=<int:pub_id>/', views.publisher_index, name= 'scicenter_pub_index')
+    path('pub=<int:pub_id>/', views.publisher_index, name= 'scicenter_pub_index'),
+    path('scisearch/', views.search_index, name='scicenter_search_index')
 ]

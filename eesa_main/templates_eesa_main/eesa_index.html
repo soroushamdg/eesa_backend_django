@@ -116,14 +116,16 @@
                     <div class="card-body">
                         <h1 class="titr">دوره ها : </h1>
                         <div class="form-group">
+                            <form method="get" action="{% url 'courses_search' %}" >
                             <label class="float-right">جستوجو : </label>
                             <div class="input-group">
-                                <input type="email" class="form-control"
+                                <input name="crsch" type="search" class="form-control"
                                        aria-describedby="emailHelp" placeholder="جستوجو در دوره ها">
                                 <div class="input-group-prepend">
-                                    <button type="submit" class="btn btn-outline-success btn-block">برو</button>
+                                    <a type="submit"> <button type="submit" class="btn btn-outline-success btn-block">برو</button></a>
                                 </div>
                             </div>
+                                </form>
                         </div>
 
                         <h5 class="w-100 text-right mt-2 mb-3">آخرین ها :</h5>
@@ -212,14 +214,14 @@
                         <h2 class="titr w-100 text-right">اعضای فعال انجمن</h2>
                         <div class="container-fluid">
                             <div class="row m-auto pt-0 pb-2">
-                                {% if team_members|length >= 4 %}
-                                    {% for member in team_members|rjust:4 %}
-                                        <div class="col">
-                                            <img src="{% if member.image == None %}{% static  "stylesheets/icons/user_male.png" %}{% else %}{{ member.image.url }}{% endif %}" class="img-fluid w-100" alt="Responsive image">
-                                        </div>
-                                    {% endfor %}
-
-                                {% else %}
+{#                                {% if team_members|length >= 4 %}#}
+{#                                    {% for member in team_members %}#}
+{#                                        <div class="col">#}
+{#                                            <img src="{% if member.image == None %}{% static  "stylesheets/icons/user_male.png" %}{% else %}{{ member.image.url }}{% endif %}" class="img-fluid w-100" alt="Responsive image">#}
+{#                                        </div>#}
+{#                                    {% endfor %}#}
+{##}
+{#                                {% else %}#}
                                 <div class="col">
                                     <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
                                 </div>
@@ -232,7 +234,7 @@
                                 <div class="col">
                                     <img src="{% static  "stylesheets/icons/user_male.png" %}" class="img-fluid w-100" alt="Responsive image">
                                 </div>
-                                {% endif %}
+{#                                {% endif %}#}
                             </div>
                         </div>
                         <button type="button" class="btn btn-outline-warning btn-block" data-toggle="modal" data-target="#ATM-ModalLong">
@@ -253,7 +255,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body p-2">
+      <div class="modal-body p-2 "  style="overflow: hidden">
       <div class="row">
 <!--      ALL CREW GOES HERE  ...-->
           {% for member in team_members %}
@@ -291,14 +293,16 @@
                     <div class="card-body">
                         <h1 class="titr">مرکز علمی</h1>
                         <div class="form-group">
+                            <form method="get" action="{% url 'scicenter_search_index' %}">
                             <label class="float-right">جستوجو : </label>
                             <div class="input-group">
-                                <input type="search" class="form-control"
+                                <input name="scisch" type="search" class="form-control"
                                        aria-describedby="emailHelp" placeholder="جستوجو در مرکز">
                                 <div class="input-group-prepend">
-                                    <button type="submit" class="btn btn-outline-success btn-block">برو</button>
+                                    <a type="submit"><button type="submit" class="btn btn-outline-success btn-block">برو</button></a>
                                 </div>
                             </div>
+                                </form>
                         </div>
 
                         <h5 class="w-100 text-right mt-2 mb-3">آخرین ها :</h5>
