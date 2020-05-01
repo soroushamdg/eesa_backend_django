@@ -18,5 +18,13 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="6b3539db-d8cf-41b8-beee-86c7aaf23324">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/eesa/settings.py</remarks>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>
