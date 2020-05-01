@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qr!bu=gg^+g1l1_3znt6o6hfg@1k+2$l8mo-a_3s+6^7&_ncat'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['eesa-webiste-sandbox.herokuapp.com','127.0.0.1']
 
